@@ -1,0 +1,22 @@
+{
+  "name": "creature9-gate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "backblaze-b2": "^1.0.4",
+    "chalk": "^2.4.1",
+    "deasync": "^0.1.13",
+    "exif": "^0.6.0",
+    "md5-file": "^4.0.0",
+    "mkdirp": "^0.5.1",
+    "recursive-readdir-sync": "^1.0.6",
+    "sharp": "^0.20.7",
+    "uuid": "^3.3.2"
+  }
+}
