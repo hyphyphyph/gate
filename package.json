@@ -15,6 +15,7 @@
     "deasync": "^0.1.13",
     "exif": "^0.6.0",
     "md5-file": "^4.0.0",
+    "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
     "recursive-readdir-sync": "^1.0.6",
     "sharp": "^0.20.7",

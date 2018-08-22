@@ -2,21 +2,21 @@ const B2 = require("backblaze-b2");
 const chalk = require("chalk");
 const path = require("path");
 
-const BzB2FileModel = require("../../models/BzB2FileModel");
+const FileCacheServiceFileCacheFactory = require("./factories/FileCacheServiceFileCacheFactory");
 
-class FilesCacheService {
+class FileCacheService {
   constructor(config) {
     console.log(
-      chalk.underline(chalk.blue("Started Service: FilesCacheService"))
+      chalk.underline(chalk.blue("Started Service: FileCacheService"))
     );
 
-    this.bzb2AccountId = config.bzb2AccountId;
-    this.bzb2ApplicationKey = config.bzb2ApplicationKey;
+    this.bzB2AccountId = config.bzB2AccountId;
+    this.bzB2ApplicationKey = config.bzB2ApplicationKey;
     this.bucketName = config.bucketName;
 
     this.b2 = new B2({
-      accountId: this.bzb2AccountId,
-      applicationKey: this.bzb2ApplicationKey
+      accountId: this.bzB2AccountId,
+      applicationKey: this.bzB2ApplicationKey
     });
 
     this.files = [];
@@ -31,7 +31,13 @@ class FilesCacheService {
           return this._getAllFiles();
         })
         .then(files => {
-          return files.map(file => new BzB2FileModel(file));
+          var fileCacheModels = files.map(file =>
+            new FileCacheServiceFileCacheFactory(file).getModel()
+          );
+          return fileCacheModels;
+        })
+        .catch(err => {
+          throw err;
         });
     });
   }
@@ -110,4 +116,4 @@ class FilesCacheService {
   }
 }
 
-module.exports = FilesCacheService;
+module.exports = FileCacheService;

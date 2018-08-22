@@ -2,7 +2,7 @@ module.exports = {
   BACKBLAZE_B2_ACCOUNT_ID: process.env.GATE_BACKBLAZE_B2_ACCOUNT_ID,
   BACKBLAZE_B2_APPLICATION_KEY: process.env.GATE_BACKBLAZE_B2_APPLICATION_KEY,
 
-  BUCKET_NAME: "api-test-bucket",
+  BUCKET_NAME: "",
 
   TEMP_DIRECTORY: "./tmp",
   THUMBNAIL_DIRECTORY: "./thumbnails",
